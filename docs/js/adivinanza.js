@@ -32,6 +32,7 @@ function muestra(){ //muestra las opciones y dehabilita el boton de mostrar opci
     muestraopciones.disabled=true;
     for (let i=0;i<4;i++){
         opciones[i].hidden=false;
+        opciones[i].disabled=false;
         }
 };
 
@@ -44,12 +45,18 @@ function elegida(op){ //parametro la opcion elegida
         if (comprobar()){ //pregunta si ya hay dos errores
             iniciajuego.disabled=false;//si ya hay dos errores, habilita el boton iniciar y cambio el texto del div
             textoadivinanza.innerHTML=`<h1>Que es un perro?</h1><br><p>Lamentablemente haz agotado tus oportunidades, <strong>PERDISTE!!</strong>. La respuesta era "Todas las anteriores", Ya que el perro es un Can (de la familia de los caninos), un cuadrúpedo ya que posee 4 patas y un mamífero ya que amamanta a sus crias.</p>`
+            for (let i=0;i<4;i++){
+                opciones[i].disabled=true;
+                }
         } else {//si me queda una opcion le advierte que le queda 1 oportunidad
             textoadivinanza.innerHTML=`<h1>Que es un perro?</h1><br><p>Ten cuidado con lo que respondes, solo tienes <strong>${2-errores} oportunidades para adivinar</strong></p>`}
     } else {//si es la ipcion ganadora
         opciones[op].classList="btn btn-outline-success";//pinto boton verde
         iniciajuego.disabled=false;//habilito el boton para iniciar y felicito en el div
-             textoadivinanza.innerHTML=`<h1>Que es un perro?</h1><br><p>Excelente, haz adivinado, o puede que ya conocías la respuesta, si es así, eres muy inteligente, <strong>FELICIDADES</strong></p>`}
+        for (let i=0;i<4;i++){
+            opciones[i].disabled=true;
+            }     
+        textoadivinanza.innerHTML=`<h1>Que es un perro?</h1><br><p>Excelente, haz adivinado, o puede que ya conocías la respuesta, si es así, eres muy inteligente, <strong>FELICIDADES</strong></p>`}
 }
 
 function comprobar (){

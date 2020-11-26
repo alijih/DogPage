@@ -47,31 +47,33 @@
         <form class="needs-validation" novalidate>
         <div class="form-row">
           <div class="col-md-6 mb-3">
-            <label for="validationServer01">Nombre</label>
+            <label for="validationServer01">Apellido</label>
             <input type="text" class="form-control " id="validationServer01" value="" required>
             <div class="valid-feedback">
                 Muy bien!
             </div>
             <div class="invalid-feedback">
-                Coloca tu nombre
+                Debes colocar tu Apellido
             </div>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="validationServer02">Apellido</label>
+            <label for="validationServer02">Nombre</label>
             <input type="text" class="form-control " id="validationServer02" value="" required>
             <div class="valid-feedback">
                 Muy bien!
             </div>
             <div class="invalid-feedback">
-                Coloca tu apellido
+              Debes colocar tu Nombre
             </div>
           </div>
         </div>
         <div class="form-group">
             <label for="validationServer03">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="validationServer03" aria-describedby="emailHelp" required>
             <small id="emailHelp" class="form-text text-muted">Ingrese un correo electrónico válido.</small>
-
+            <div class="valid-feedback">
+              Muy bien!
+          </div>
           <div class="invalid-feedback">
             Ingrese un correo electrónico válido.
           </div>
@@ -86,7 +88,7 @@
         <button class="btn btn-primary" type="submit">Enviar</button>
       </form>
     </div>
-    <form>
+    
 
       <br>
 
@@ -111,8 +113,11 @@
                   if (form.checkValidity() === false) {
                     event.preventDefault();
                     event.stopPropagation();
-                  }
+                    
+                  } else {alert('Su consulta fue enviada con exito!!!')}
+                          
                   form.classList.add('was-validated');
+                  
                 }, false);
               });
             }, false);
